@@ -16,7 +16,7 @@ defmodule AuthWeb.Router do
   scope "/", AuthWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", BankController, :index
     resources "/locations", BankController
   end
 
