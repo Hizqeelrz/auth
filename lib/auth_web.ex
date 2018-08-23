@@ -37,10 +37,10 @@ defmodule AuthWeb do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import AuthWeb..Helpers.Auth, only: [signed_in?: 2]
       import AuthWeb.Router.Helpers
       import AuthWeb.ErrorHelpers
       import AuthWeb.Gettext
+      import AuthWeb.Helpers.Auth, only: [signed_in?: 1]      
     end
   end
 
