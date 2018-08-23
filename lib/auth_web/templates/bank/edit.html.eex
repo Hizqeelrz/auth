@@ -1,4 +1,4 @@
-<h2>Edit Bank</h2>
+<h2>Edit Bank Location</h2>
 
 <%= render "form.html", Map.put(assigns, :action, bank_path(@conn, :update, @bank)) %>
 
