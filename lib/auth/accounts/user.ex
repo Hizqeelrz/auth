@@ -1,6 +1,7 @@
 defmodule Auth.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Comeonin.Bcrypt
 
 
   schema "users" do
@@ -16,5 +17,6 @@ defmodule Auth.Accounts.User do
     |> cast(attrs, [:email, :encrypted_password])
     |> validate_required([:email, :encrypted_password])
     |> unique_constraint(:email)
+    |> update_change(:encrypted_password, &Bcrypt.hashpwsalt/1)
   end
 end
