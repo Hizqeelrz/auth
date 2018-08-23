@@ -18,6 +18,7 @@ defmodule AuthWeb.Router do
 
     get "/", BankController, :index
     resources "/locations", BankController
+    resources "/registrations", UserController, only: [:create, :new]
   end
 
   # Other scopes may use custom stacks.
