@@ -18,10 +18,9 @@
           <ul class="nav nav-pills pull-right">
             <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
             <%= if signed_in?(@conn) do %>
-              <li><%= link "Sign Out", to: "" %></li>
+              <li><%= link "Sign Out", to: session_path(@conn, :delete), method: :delete %></li>
             <% else %>
-              <li><%= link "Sign In", to: "" %></li>
-              |
+              <li><%= link "Sign In", to: session_path(@conn, :new) %></li>
               <li><%= link "Sign Up", to: user_path(@conn, :new) %></li>
             <% end %>
           </ul>

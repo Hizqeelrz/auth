@@ -1,5 +1,7 @@
-defmodule  do
+defmodule AuthWeb.SessionController  do
   use AuthWeb, :controller
+
+  alias Auth.Accounts
 
   def new(conn, _params) do
     render conn, "new.html"
@@ -15,7 +17,7 @@ defmodule  do
         |> redirect(to: bank_path(conn, :index))
         {:error, _} ->
         conn
-        |> put_flash(:error, "There was a problem with your username/password")
+        |> put_flash(:error, "There was a problem with your email/password")
         |> render("new.html")
     end
   end
@@ -24,6 +26,6 @@ defmodule  do
     conn
     |> delete_session(:current_user_id)
     |> put_flash(:info, "Sign Out Successfully.")
-    |> redirect(to: bank_path(conn, :index))
+    |> redirect(to: session_path(conn, :new))
   end
 end
