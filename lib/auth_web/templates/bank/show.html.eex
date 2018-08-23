@@ -1,0 +1,23 @@
+<h2>Show Bank</h2>
+
+<ul>
+
+  <li>
+    <strong>Branch name:</strong>
+    <%= @bank.branch_name %>
+  </li>
+
+  <li>
+    <strong>Total employee:</strong>
+    <%= @bank.total_employee %>
+  </li>
+
+  <li>
+    <strong>Branch city:</strong>
+    <%= @bank.branch_city %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: bank_path(@conn, :edit, @bank) %></span>
+<span><%= link "Back", to: bank_path(@conn, :index) %></span>
