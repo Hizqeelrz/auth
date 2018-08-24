@@ -3,6 +3,24 @@ defmodule AuthWeb.BankController do
 
   alias Auth.Banks
   alias Auth.Banks.Bank
+  alias Auth.Accounts
+
+  plug :check_auth when action in [:index, :new, :create, :edit, :update, :delete]
+
+  defp check_auth(conn, _args) do
+    if user_id = get_session(conn, :current_user_id) do
+      current_user = Accounts.get_user!(user_id)
+
+      conn
+      |> assign(:current_user, current_user)
+    else
+      conn
+      |> put_flash(:info, "You need to be signed in to access this page")
+      |> redirect(to: session_path(conn, :new))
+      |> halt()
+    end
+  end
+
 
   def index(conn, _params) do
     locations = Banks.list_locations()
