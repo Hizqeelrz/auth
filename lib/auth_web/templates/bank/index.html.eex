@@ -27,4 +27,4 @@
   </tbody>
 </table>
 
-<span><%= link "New Bank", to: bank_path(@conn, :new) %></span>
+<span><%= link "New Bank", to: bank_path(@conn, :new), class: "btn btn-primary btn-sm" %></span>

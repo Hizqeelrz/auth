@@ -19,5 +19,5 @@
 
 </ul>
 
-<span><%= link "Edit", to: bank_path(@conn, :edit, @bank) %></span>
-<span><%= link "Back", to: bank_path(@conn, :index) %></span>
+<span><%= link "Edit", to: bank_path(@conn, :edit, @bank), class: "btn btn-default btn-sm" %></span>
+<span><%= link "Back", to: bank_path(@conn, :index), class: "btn btn-info btn-sm" %></span>
